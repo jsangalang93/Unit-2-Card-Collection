@@ -9,6 +9,13 @@
     <h1>
         <%=card.name%>
     </h1>
+    <p>card number:
+        <%=card.number%></p>
+    <p>series:
+        <%=card.series%></p>
+    <p>condition:
+        <%=card.condition%></p>
+        
     <% if(card.isAuth){ %>
         <p>This card is authenticated by a verified source.</p>
     <% } else { %>

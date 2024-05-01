@@ -44,11 +44,9 @@ app.post('/cards', async (req, res)=>{
 
 
 
-app.get('/cards/:cardId', async (req, res)=>{
-    const foundCard = await Cards.findById(req.params.cardId)
-    res.render('cards/show.ejs', {
-        card: foundCard
-    })
+app.get('/cards/:id', async (req, res) => {
+    const foundCard = await Cards.findById(req.params.id);
+    res.render('cards/show.ejs', {card: foundCard});
 });
 
 
