@@ -24,5 +24,7 @@
     
     <a href="/cards">Back to the index</a>
     <a href="/cards/<%=card._id%>/edit">Edit this card</a>
+    <form action="/cards/<%=card._id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete this card</button>
 </body>
 </html>

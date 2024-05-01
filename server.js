@@ -64,8 +64,12 @@ app.put('/cards/:id', async (req, res)=>{
 
 // DELETE ROUTE--------------------------------------------------------------------
 
+app.delete('/cards/:id', async (req, res)=>{
+    await Cards.findByIdAndDelete(req.params.id);
+    res.redirect('/cards');
+})
 
-
+// CONNECTIONS---------------------------------------------------------------------
 mongoose.connection.on('connected', ()=>{
     console.log(`connected to MongoDB ${mongoose.connection.name}`);
 })
