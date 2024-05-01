@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Post a new Card</h1>
+
+    <form action="/cards" method="POST">
+        
+        <label>Name:</label>
+        <input type="text" name="name"><br>
+
+        <label>Number:</label>
+        <input type="text" name="number"><br>
+
+        <label>Condition:</label>
+        <input type="text" name="condition"><br>
+        <p>M: Mint <br>NM: Near Mint <br>LP: Lightly Played <br>MP: Moderately Played <br>DMG: Damaged</p>
+
+        <label>Series:</label>
+        <input type="text" name="series"><br>
+
+        <!-- <label>Is the condition of this card authenticated?</label>
+        <input type="checkbox" name="authenticated"/><br> -->
+        <button type="submit">Upload to the pail!</button>
+    </form>
+
+    <a href="/cards">Back to the index</a>
+</body>
+</html>
