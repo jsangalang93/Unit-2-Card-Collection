@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit A Card Posting</h1>
+
+    <form action="/cards/<%=card._id%>?_method=PUT" method="POST">
+        
+        <label>Name:</label>
+        <input type="text" name="name"><br>
+
+        <label>Number:</label>
+        <input type="text" name="number"><br>
+
+        <label>Condition:</label>
+        <input type="text" name="condition"><br>
+        <p>M: Mint <br>NM: Near Mint <br>LP: Lightly Played <br>MP: Moderately Played <br>DMG: Damaged</p>
+
+        <label>Series:</label>
+        <input type="text" name="series"><br>
+
+        <label>Is the condition of this card authenticated?</label>
+        <input type="checkbox" name="isAuth"/><br>
+        
+        <button type="submit">Update Card!</button>
+    </form>
+</body>
+</html>

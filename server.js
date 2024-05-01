@@ -19,16 +19,9 @@ const Cards = require('./models/card.js');
 app.get('/', (req, res)=>{
     res.render('home.ejs')
 })
-
+// CREATE ROUTE----------------------------------------------------------------------
 app.get('/cards/new', (req, res)=>{
     res.render('cards/new.ejs')
-})
-
-app.get('/cards', async (req, res)=>{
-    const allCards = await Cards.find({})
-    res.render('cards/index.ejs', {
-        cards: allCards
-    })
 })
 
 app.post('/cards', async (req, res)=>{
@@ -42,12 +35,29 @@ app.post('/cards', async (req, res)=>{
     res.redirect('/cards')
 })
 
-
+//READ ROUTE-----------------------------------------------------------------------
+app.get('/cards', async (req, res)=>{
+    const allCards = await Cards.find({})
+    res.render('cards/index.ejs', {
+        cards: allCards
+    })
+})
 
 app.get('/cards/:id', async (req, res) => {
     const foundCard = await Cards.findById(req.params.id);
     res.render('cards/show.ejs', {card: foundCard});
 });
+
+// UPDATE ROUTE--------------------------------------------------------------------
+
+app.get('/cards/:id/edit', async (req, res)=>{
+    const foundCard = await Cards.findById(req.params.id);
+    res.render('cards/edit.ejs', {
+        card: foundCard
+    })
+})
+
+// DELETE ROUTE--------------------------------------------------------------------
 
 
 
