@@ -11,20 +11,20 @@
     <form action="/cards" method="POST">
         
         <label>Name:</label>
-        <input type="text" name="name"><br>
+        <input type="text" name="name" required /><br>
 
         <label>Number:</label>
-        <input type="text" name="number"><br>
+        <input type="text" name="number" required /><br>
 
         <label>Condition:</label>
-        <input type="text" name="condition"><br>
+        <input type="text" name="condition" required /><br>
         <p>M: Mint <br>NM: Near Mint <br>LP: Lightly Played <br>MP: Moderately Played <br>DMG: Damaged</p>
 
         <label>Series:</label>
-        <input type="text" name="series"><br>
+        <input type="text" name="series" required /><br>
 
         <label>Is the condition of this card authenticated?</label>
-        <input type="checkbox" name="isAuth"/><br>
+        <input type="checkbox" name="isAuth" required /><br>
         <button type="submit">Upload to the pail!</button>
     </form>
 
