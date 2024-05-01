@@ -5,7 +5,7 @@ const cardSchema = new mongoose.Schema({
     number: String,
     condition: String,
     series: String,
-    // isAuth: Boolean
+    isAuth: Boolean
 });
 
 const Cards = mongoose.model('Cards', cardSchema);

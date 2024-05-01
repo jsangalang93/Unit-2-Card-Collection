@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        <%=card.name%>
+    </h1>
+    <% if(card.isAuth){ %>
+        <p>This card is authenticated by a verified source.</p>
+    <% } else { %>
+        <p>This card is not authenticated by a verified source.</p>
+    <% } %>
+    
+</body>
+</html>
