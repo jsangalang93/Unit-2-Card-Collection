@@ -57,6 +57,11 @@ app.get('/cards/:id/edit', async (req, res)=>{
     })
 })
 
+app.put('/cards/:id', async (req, res)=>{
+    await Cards.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    res.redirect(`/cards/${req.params.id}`);
+})
+
 // DELETE ROUTE--------------------------------------------------------------------
 
 
