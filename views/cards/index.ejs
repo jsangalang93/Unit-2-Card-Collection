@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Butcherman&family=Creepster&family=Finger+Paint&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body {
+        font-family: 'Creepster', cursive;
+        color: red;
+        text-align: center;
+    }
+    h1 {
+        font-family: 'Creepster', cursive;
+        font-size: 3em;
+        color: red;
+    }
+    a {
+        text-decoration: none;
+        color: #333;
+        margin: 0 10px;
+        /* list-style-type: none; */
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    .container {
+        align-items: center;
+        list-style-type: none;
+    }
+</style>
 <body>
     <h1>Index</h1>
-    <ul>
+    <div class="container">
         <% cards.forEach((card) =>{ %>
             <li>
                 <a href="/cards/<%=card._id%>">
@@ -20,5 +49,6 @@
 
     </ul>
     <a href="/cards/new">Add a new card</a>
+    </div
 </body>
 </html>

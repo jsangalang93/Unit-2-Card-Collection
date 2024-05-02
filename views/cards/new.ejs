@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Butcherman&family=Creepster&family=Finger+Paint&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body {
+        font-family: 'Creepster';
+        color: red;
+        text-align: center;
+    }
+    h1 {
+        font-family: 'Creepster';
+        font-size: 3em;
+        color: red;
+    }
+    a {
+        text-decoration: none;
+        color: #333;
+        margin: 0 10px;
+    }
+</style>
 <body>
     <h1>Post a new Card</h1>
 
@@ -28,7 +47,7 @@
         <div><small>*required</small></div><br>
 
         <label>Is the condition of this card authenticated?</label>
-        <input type="checkbox" name="isAuth" required />
+        <input type="checkbox" name="isAuth" />
         <div><small>*required</small></div><br>
         <button type="submit">Upload to the pail!</button>
     </form>

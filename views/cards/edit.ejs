@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Butcherman&family=Creepster&family=Finger+Paint&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body {
+        font-family: 'Butcherman', cursive;
+        color: red;
+        text-align: center;
+    }
+    h1 {
+        font-family: 'Creepster', cursive;
+        font-size: 3em;
+        color: red;
+    }
+    a {
+        text-decoration: none;
+        color: #333;
+        margin: 0 10px;
+    }
+</style>
 <body>
     <h1>Edit A Card Posting</h1>
 
@@ -18,6 +36,7 @@
 
         <label>Condition:</label>
         <input type="text" name="condition" value="<%=card.condition%>"><br>
+        
         <p>M: Mint <br>NM: Near Mint <br>LP: Lightly Played <br>MP: Moderately Played <br>DMG: Damaged</p>
 
         <label>Series:</label>
