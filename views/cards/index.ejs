@@ -12,6 +12,7 @@
         font-family: 'Creepster', cursive;
         color: red;
         text-align: center;
+        background: yellow;
     }
     h1 {
         font-family: 'Creepster', cursive;
@@ -29,14 +30,19 @@
         list-style-type: none;
     }
 
-    .container {
+    .bigDiv {
         align-items: center;
         list-style-type: none;
+
+    }
+    .option {
+        color: red;
     }
 </style>
 <body>
+    <div class="bigDiv">
     <h1>Index</h1>
-    <div class="container">
+
         <% cards.forEach((card) =>{ %>
             <li>
                 <a href="/cards/<%=card._id%>">
@@ -48,7 +54,8 @@
         <% }) %>
 
     </ul>
-    <a href="/cards/new">Add a new card</a>
-    </div
+    <br>
+    <a class="option" href="/cards/new">Add a new card</a>
+</div>
 </body>
 </html>

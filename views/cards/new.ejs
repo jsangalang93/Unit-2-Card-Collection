@@ -12,6 +12,7 @@
         font-family: 'Creepster';
         color: red;
         text-align: center;
+        background: yellow;
     }
     h1 {
         font-family: 'Creepster';
@@ -22,6 +23,13 @@
         text-decoration: none;
         color: #333;
         margin: 0 10px;
+    }
+
+    button {
+        font-family: 'Creepster';
+    }
+    .addendum {
+        color: green
     }
 </style>
 <body>
@@ -40,7 +48,7 @@
 
         <label>Condition:</label>
         <input type="text" name="condition" required />
-        <div><small>*required</small></div><br>
+        <div><small >*required, <div class="addendum">M, NM, LP, MP or DMG</div></small></div><br>
 
         <label>Series:</label>
         <input type="text" name="series" required />
@@ -52,7 +60,7 @@
         <button type="submit">Upload to the pail!</button>
     </form>
 
-    <div> 
+    <div class="addendum"> 
         M: Mint <br>
         NM: Near Mint <br>
         LP: Lightly Played <br>
