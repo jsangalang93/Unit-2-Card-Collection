@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Butcherman&family=Creepster&family=Finger+Paint&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Finger+Paint&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <style>
     body {
-        font-family: 'Butcherman', cursive;
+        font-family: 'Creepster', cursive;
         color: red;
         text-align: center;
     }
@@ -21,6 +21,11 @@
         text-decoration: none;
         color: #333;
         margin: 0 10px;
+    }
+    button {
+        font-family: 'Playfair Display', serif;
+        border-radius: 12px;
+        background-color: yellow;
     }
 </style>
 <body>
@@ -48,7 +53,7 @@
             <option value="MP">
             <option value="DMG">
             </datalist><br>
-        
+        <!--^ https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation -->
         <p>M: Mint <br>NM: Near Mint <br>LP: Lightly Played <br>MP: Moderately Played <br>DMG: Damaged</p>
 
         <label>Series:</label>
@@ -57,7 +62,7 @@
         <label>Is the condition of this card authenticated?</label>
         <input type="checkbox" name="isAuth" value="<%=card.isAuth%>"/><br>
 
-        <button type="submit">Update Card!</button>
+        <button type="submit"><b>UPDATE CARD</b></button>
     </form>
 </body>
 </html>

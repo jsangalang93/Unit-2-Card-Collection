@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Butcherman&family=Creepster&family=Finger+Paint&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Finger+Paint&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,7 +47,7 @@
         <div><small>*required</small></div><br>
 
         <label>Condition:</label>
-        
+
         <input 
         type="text" 
         list="conditionl"
@@ -61,7 +61,8 @@
             <option value="MP">
             <option value="DMG">
         </datalist><br>
-        <div><small >*required, <div class="addendum">M, NM, LP, MP or DMG</div></small></div><br>
+        <!-- ^https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation -->
+        <div><small >*required, <div class="addendum">(Pick from dropdown menu)</div></small></div><br>
 
         <label>Series:</label>
         <input type="text" name="series" required />
