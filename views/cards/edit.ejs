@@ -35,7 +35,19 @@
         <input type="text" name="number" value="<%=card.number%>"><br>
 
         <label>Condition:</label>
-        <input type="text" name="condition" value="<%=card.condition%>"><br>
+        <input 
+        type="text" 
+        list="conditionl"
+        name="condition" 
+        required/>
+
+        <datalist id="conditionl">
+            <option value="M">
+            <option value="NM">
+            <option value="LP">
+            <option value="MP">
+            <option value="DMG">
+            </datalist><br>
         
         <p>M: Mint <br>NM: Near Mint <br>LP: Lightly Played <br>MP: Moderately Played <br>DMG: Damaged</p>
 

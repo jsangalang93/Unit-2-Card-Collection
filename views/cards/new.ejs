@@ -47,7 +47,20 @@
         <div><small>*required</small></div><br>
 
         <label>Condition:</label>
-        <input type="text" name="condition" required />
+        
+        <input 
+        type="text" 
+        list="conditionl"
+        name="condition" 
+        required/>
+
+        <datalist id="conditionl">
+            <option value="M">
+            <option value="NM">
+            <option value="LP">
+            <option value="MP">
+            <option value="DMG">
+        </datalist><br>
         <div><small >*required, <div class="addendum">M, NM, LP, MP or DMG</div></small></div><br>
 
         <label>Series:</label>

@@ -52,6 +52,10 @@ app.post('/cards', async (req, res)=>{
     res.redirect('/cards')
 })
 
+
+
+
+
 //READ ROUTE-----------------------------------------------------------------------
 app.get('/cards', async (req, res)=>{
     const allCards = await Cards.find({})
