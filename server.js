@@ -47,16 +47,18 @@ app.get('/cards', async (req, res)=>{
 })
 
 app.get('/:series', async (req, res)=>{
-    // const parseSer = []
+    // const parseSer = [];
     // const series = req.params.series;
     // cards.forEach((card)=>{
-    // if(cards.series === req.params.series){
-    //     parseSer.push(card);
-    //     res.send(card)
+    //     if(card.series === req.params.series){
+    //         parseSer.push(card);
+    //         res.render('cards/series.ejs', {cards: parseSer});
+    //     }
     // })
+
     const foundCards = await Cards.find({series: req.params.series});
     res.render('cards/series.ejs', {cards: foundCards});
-    });
+});
 
 
 app.get('/cards/:id', async (req, res) => {
@@ -74,21 +76,6 @@ app.get('/cards/:id/edit', async (req, res)=>{
 })
 
 app.put('/cards/:id', async (req, res)=>{
-    // if(req.body.condition === "M" || "m"){
-    //     req.body.condition = "M"
-    // }else if(req.body.condition === "NM" || "nm"){
-    //     req.body.condition = "NM"
-    // } else if (req.body.condition === "LP" || "lp"){
-    //     req.body.condition = "LP"
-    // } else if (req.body.condition === "MP" || "mp"){
-    //     req.body.condition = "MP"
-    // } else if (req.body.condition === "HP" || "hp"){
-    //     req.body.condition = "HP"
-    // } else if (req.body.condition === "DMG" || "dmg"){
-    //     req.body.condition = "DMG"
-    // }else{
-    //     alert('Please type a valid input in the condition field.')
-    // }
     await Cards.findByIdAndUpdate(req.params.id, req.body, {new: true})
     res.redirect(`/cards/${req.params.id}`);
 })
