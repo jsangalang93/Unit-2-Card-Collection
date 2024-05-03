@@ -33,9 +33,16 @@
         font-family: 'Playfair Display', serif;
         border-radius: 12px;
         background-color: yellow;
+        text-transform: uppercase;
+    }
+
+    p {
+        color: yellow;
+        text-shadow: green 2px 2px;
     }
 </style>
 <body>
+    <nav></nav>
     <h1>
         <%=card.name%>
     </h1>
@@ -54,7 +61,8 @@
     
     <a href="/cards">Index</a><br>
     <a href="/cards/<%=card._id%>/edit">Edit</a><br>
-    <a href="/series<%=card.series%>">View Cards added from series <%=card.series%></a>
+    <a href="/series<%=card.series%>">View Cards added from series <%=card.series%></a><br>
+    <a href="/">Home</a><br>
     <form action="/cards/<%=card._id%>?_method=DELETE" method="POST">
         <button type="submit"><b>Delete card <%=card.number%>, <%=card.name%></b></button>
 

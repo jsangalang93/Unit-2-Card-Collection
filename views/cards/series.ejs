@@ -23,16 +23,16 @@
 <body>
     <h1>Select By Series!</h1>
     <ul>
-        <%console.log(cards);%>
-        <% cards.forEach((card) => { %>
+        
             <li>
-                <a href="/cards/<%=card.id%>">
-                    <%=card.name%>,
-                    <%=card.number %>
-                    
+                <% card.forEach((card) =>{ %>
+                <a href="/cards/<%= card.id %>">
+                    <%= card.name %>,
+                    <%= card.number %>
+                    <% })%>
                 </a>
             </li>
-        <% }) %>
+        
     </ul>
 </body>
 </html>

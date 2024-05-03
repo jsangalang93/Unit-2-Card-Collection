@@ -55,9 +55,7 @@ app.get('/cards', async (req, res)=>{
     })
 })
 
-
-
-
+// PARSING BY SERIES
 app.get('/cards/:id', async (req, res) => {
     const foundCard = await Cards.findById(req.params.id);
     res.render('cards/show.ejs', {card: foundCard});
@@ -77,10 +75,10 @@ app.put('/cards/:id', async (req, res)=>{
     res.redirect(`/cards/${req.params.id}`);
 })
 
-app.get('/:series', async (req, res)=>{
-    const foundCards = await Cards.find({series: req.params.series});
-    res.render('cards/series.ejs', {cards: foundCards});
-});
+// app.get('/:series', async (req, res)=>{
+//     const foundCards = await Cards.find({series: req.params.series});
+//     res.render('cards/series.ejs', {card: foundCards});
+// });
 // DELETE ROUTE--------------------------------------------------------------------
 
 app.delete('/cards/:id', async (req, res)=>{
