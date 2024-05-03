@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+const path = require('path');
+
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -9,9 +11,16 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI);
 
+mongoose.connection.on("error", (error) => {
+    console.log("MongoDB connection error ", error);
+  });
+
 //generates req.body VVVV
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 const Cards = require('./models/card.js');
 
