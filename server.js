@@ -46,19 +46,7 @@ app.get('/cards', async (req, res)=>{
     })
 })
 
-app.get('/:series', async (req, res)=>{
-    // const parseSer = [];
-    // const series = req.params.series;
-    // cards.forEach((card)=>{
-    //     if(card.series === req.params.series){
-    //         parseSer.push(card);
-    //         res.render('cards/series.ejs', {cards: parseSer});
-    //     }
-    // })
 
-    const foundCards = await Cards.find({series: req.params.series});
-    res.render('cards/series.ejs', {cards: foundCards});
-});
 
 
 app.get('/cards/:id', async (req, res) => {
@@ -80,6 +68,10 @@ app.put('/cards/:id', async (req, res)=>{
     res.redirect(`/cards/${req.params.id}`);
 })
 
+app.get('/:series', async (req, res)=>{
+    const foundCards = await Cards.find({series: req.params.series});
+    res.render('cards/series.ejs', {cards: foundCards});
+});
 // DELETE ROUTE--------------------------------------------------------------------
 
 app.delete('/cards/:id', async (req, res)=>{

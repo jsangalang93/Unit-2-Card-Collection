@@ -7,21 +7,25 @@
     <title>Document</title>
 </head>
 <style>
+    body {
+        background-image:url('/public/assets/series.jpg');
+    }
     h1 {
         font-family: 'Creepster';
         color: red;
         text-align: center;
     }
+   
 </style>
 <body>
-    <h1>Select By Series</h1>
+    <h1>Select By Series!</h1>
     <ul>
-        
+        <%console.log(cards);%>
         <% cards.forEach((card) => { %>
             <li>
                 <a href="/cards/<%=card.id%>">
                     <%=card.name%>,
-                    <%=card.series %>
+                    <%=card.number %>
                     
                 </a>
             </li>
