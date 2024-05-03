@@ -5,14 +5,15 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GPK DB: <%=card.name%> Info</title>
 </head>
 <style>
     body {
+        background-image: url('assets/Untitled_Artwork 4.jpg');
         font-family: 'Creepster', cursive;
         color: red;
         text-align: center;
-        background-image: url('/assets/show.jpg');
+        
     }
     h1 {
         font-family: 'Creepster', cursive;
@@ -47,10 +48,10 @@
     <% } %>
     
     <a href="/cards">Index</a><br>
-    <a href="/cards/<%=card._id%>/edit">Edit</a>
-    <a href="/series<%=card.series%>">View by series</a>
+    <a href="/cards/<%=card._id%>/edit">Edit</a><br>
+    <a href="/series<%=card.series%>">View Cards added from series <%=card.series%></a>
     <form action="/cards/<%=card._id%>?_method=DELETE" method="POST">
-        <button type="submit">Delete this card</button>
+        <button type="submit">Delete card <%=card.number%>, <%=card.name%></button>
 
 </body>
 </html>
