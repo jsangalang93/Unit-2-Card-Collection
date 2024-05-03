@@ -47,7 +47,9 @@
     
     <a href="/cards">Index</a><br>
     <a href="/cards/<%=card._id%>/edit">Edit</a>
+    <a href="/series<%=card.series%>">View by series</a>
     <form action="/cards/<%=card._id%>?_method=DELETE" method="POST">
         <button type="submit">Delete this card</button>
+
 </body>
 </html>

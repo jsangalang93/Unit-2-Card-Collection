@@ -25,24 +25,6 @@ app.get('/cards/new', (req, res)=>{
 })
 
 app.post('/cards', async (req, res)=>{
-    // console.log(req.body);
-    
-    // if(req.body.condition === "M" || "m"){
-    //     req.body.condition = "M"
-    // }else if(req.body.condition === "NM" || "nm"){
-    //     req.body.condition = "NM"
-    // } else if (req.body.condition === "LP" || "lp"){
-    //     req.body.condition = "LP"
-    // } else if (req.body.condition === "MP" || "mp"){
-    //     req.body.condition = "MP"
-    // } else if (req.body.condition === "HP" || "hp"){
-    //     req.body.condition = "HP"
-    // } else if (req.body.condition === "DMG" || "dmg"){
-    //     req.body.condition = "DMG"
-    // }else{
-    //     alert('Please type a valid input in the condition field.')
-    // }
-    
     if(req.body.isAuth === 'on'){
         req.body.isAuth = true;
     } else {
@@ -63,6 +45,19 @@ app.get('/cards', async (req, res)=>{
         cards: allCards
     })
 })
+
+app.get('/:series', async (req, res)=>{
+    // const parseSer = []
+    // const series = req.params.series;
+    // cards.forEach((card)=>{
+    // if(cards.series === req.params.series){
+    //     parseSer.push(card);
+    //     res.send(card)
+    // })
+    const foundCards = await Cards.find({series: req.params.series});
+    res.render('cards/series.ejs', {cards: foundCards});
+    });
+
 
 app.get('/cards/:id', async (req, res) => {
     const foundCard = await Cards.findById(req.params.id);

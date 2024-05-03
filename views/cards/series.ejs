@@ -2,32 +2,30 @@
 <html lang="en">
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Finger+Paint&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <style>
-    body {
+    h1 {
         font-family: 'Creepster';
         color: red;
         text-align: center;
     }
-    h1 {
-        font-family: 'Creepster';
-        font-size: 3em;
-        color: red;
-    }
-    a {
-        text-decoration: none;
-        color: #333;
-        margin: 0 10px;
-    }
 </style>
 <body>
-    <h1>The Garbage Pail Kids Database</h1>
-    <p>A place where I can keep track of all of my cards, to look at a glance.</p>
-    <a href="/cards">View all cards</a>
-    <a href="/cards/new">Add a new card</a>
+    <h1>Select By Series</h1>
+    <ul>
+        
+        <% cards.forEach((card) => { %>
+            <li>
+                <a href="/cards/<%=card.id%>">
+                    <%=card.name%>,
+                    <%=card.series %>
+                    
+                </a>
+            </li>
+        <% }) %>
+    </ul>
 </body>
 </html>
