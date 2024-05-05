@@ -61,7 +61,7 @@
     
     <a href="/cards">Index</a><br>
     <a href="/cards/<%=card._id%>/edit">Edit</a><br>
-    <a href="/series<%=card.series%>">View Cards added from series <%=card.series%></a><br>
+    <a href="/<%=card.series%>">View Cards added from series <%=card.series%></a><br>
     <a href="/">Home</a><br>
     <form action="/cards/<%=card._id%>?_method=DELETE" method="POST">
         <button type="submit"><b>Delete card <%=card.number%>, <%=card.name%></b></button>

@@ -4,7 +4,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Finger+Paint&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Series</title>
+    <title>View Series<%=card.series%></title>
 </head>
 <style>
     body {
@@ -18,20 +18,32 @@
         color: red;
         text-align: center;
     }
+
+    a {
+        font-family: 'creepster';
+        text-decoration: none;
+        text-align: center;
+    }
    
+   li {
+    text-align: center;
+    text-decoration: none;
+    list-style-type: none;
+   }
+
 </style>
 <body>
-    <h1>Select By Series!</h1>
+    <h1>Series <%= card.series %></h1>
     <ul>
         
-            <li>
+        <li>
                 <% card.forEach((card) =>{ %>
                 <a href="/cards/<%= card.id %>">
-                    <%= card.name %>,
-                    <%= card.number %>
-                    <% })%>
+                <%= card.name %>,
+                <%= card.number %><br>
+                <% })%>
                 </a>
-            </li>
+        </li>
         
     </ul>
 </body>
