@@ -39,17 +39,15 @@
 </style>
 <body>
     <h1>Series <%=series%></h1>
-    <ul>
-        
-        <li>
+            <li>
                 <% card.forEach((card) =>{ %>
                 <a href="/cards/<%= card.id %>">
                 <%= card.name %>,
                 <%= card.number %><br>
                 <% })%>
                 </a>
-        </li>
+            </li>    
         
-    </ul>
+    
 </body>
 </html>
