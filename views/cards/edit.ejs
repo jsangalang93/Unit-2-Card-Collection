@@ -65,7 +65,7 @@
         <label>Is the condition of this card authenticated?</label>
         <input type="checkbox" name="isAuth" value="<%=card.isAuth%>"/><br>
         <label>Additional Comments:</label><br>
-        <textarea id="message"></textarea><br>
+        <textarea id="message" required maxLength="75"></textarea><br>
         <button type="submit"><b>UPDATE <%=card.name%></b></button>
     </form>
 </body>
