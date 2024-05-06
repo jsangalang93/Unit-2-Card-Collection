@@ -80,7 +80,7 @@ app.get('/:series', async (req, res)=>{
     console.log(
         foundCards
     );
-    res.render('cards/series.ejs', {card: foundCards});
+    res.render('cards/series.ejs', {card: foundCards, series: req.params.series});
 });
 // DELETE ROUTE--------------------------------------------------------------------
 
