@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Finger+Paint&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in</title>
 </head>
+<style>
+    h1 {
+      font-family: 'Creepster';
+      color: red;
+      text-align: center;
+    }
+    body {
+      font-family: 'Creepster';
+      color: red;
+      text-align: center;
+      background-image: url('/assets/purp.jpg');
+      background-size: 100vw 100vh;
+      background-repeat: none;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    button {
+        font-family: 'Playfair Display', serif;
+        border-radius: 12px;
+        background-color: yellow;
+        color: black;
+        text-transform: uppercase;
+    }
+  </style>
     <body>
         <h1> Sign in to the Pail</h1>
-        <form action="auth/sign-in" method="POST">
+        <form action="/auth/sign-in" method="POST">
 
             <label for="username">Username:</label>
         <input type="text" name="username" id="username" />

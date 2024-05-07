@@ -15,6 +15,12 @@ const port = process.env.PORT ? process.env.PORT : 3015;
 const authController = require('./controllers/auth.js');
 
 const session = require ('express-session');
+app.use(express.urlencoded({extended:false}));
+app.use(methodOverride('_method'));
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
+app.use(morgan('dev'));
 
 app.use(
     session({
@@ -32,12 +38,7 @@ mongoose.connection.on("error", (error) => {
   });
 
 // MIDDLEWARE VVVV
-app.use(express.urlencoded({extended:false}));
-app.use(methodOverride('_method'));
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static('public'));
-app.use(morgan('dev'));
 
 //session setup prefs
 
@@ -82,6 +83,14 @@ app.get('/cards', async (req, res)=>{
 app.get('/cards/:id', async (req, res) => {
     const foundCard = await Cards.findById(req.params.id);
     res.render('cards/show.ejs', {card: foundCard});
+});
+
+app.get('/vip', (req, res) => {
+    if (req.session.user) {
+        res.send('Thank you for being vip trash');
+    } else {
+        res.send('You are not trashy enough, sign up to be vip trash');
+    }
 });
 
 // UPDATE ROUTE------------------------------------------------------------------------

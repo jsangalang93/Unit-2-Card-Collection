@@ -11,16 +11,16 @@ router.get('/sign-up', (req, res) => {
 });
 
 router.post('/sign-up', async (req, res) => {
-    res.send('Welcome to the The Pail!');
+    // res.send('welcome to the The Pail!');
 
     //user validation
     const userInDatabase = await User.findOne({username: req.body.username});
     if (userInDatabase) {
-        return res.send('Sorry, you may be a duplicate. Try again.');
+        return res.send('Username taken. Try again');
     }
 
     if (req.body.password !== req.body.confirmPassword) {
-        return  res.send(`I know it's difficult, but write the <b>same</b> password t w i c e.`);
+        return res.send(`Passwords must match.`);
     }
 
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
@@ -28,14 +28,15 @@ router.post('/sign-up', async (req, res) => {
 
     //creates user
     const user = await User.create(req.body);
-    res.send(`welcome to the Pail, ${user.name}!`);
+    res.render('cards/welcome.ejs')
+    
 });
 
 router.get('/sign-in', (req, res) => {
     res.render('auth/sign-in.ejs');
 })
 
-//SIGN IN ROUTE
+//SIGN IN ROUTE 
 router.post('/sign-in', async (req, res) => {
 
     //making sure the user is in the database
@@ -59,3 +60,7 @@ router.post('/sign-in', async (req, res) => {
     res.redirect('/');
 });
 
+router.get("/sign-out", (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+  });

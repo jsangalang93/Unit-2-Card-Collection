@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Finger+Paint&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
   </head>
+  <style>
+    h1 {
+      font-family: 'Creepster';
+      color: red;
+      text-align: center;
+    }
+    body {
+      font-family: 'Creepster';
+      color: red;
+      text-align: center;
+      background-image: url('/assets/series.jpg');
+      background-size: 100vw 100vh;
+      background-repeat: none;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    button {
+        font-family: 'Playfair Display', serif;
+        border-radius: 12px;
+        background-color: yellow;
+        color: black;
+        text-transform: uppercase;
+    }
+  </style>
   <body>
     <h1>Create a new account on GPK DB to get exclusive features!</h1>
     <form action="/auth/sign-up" method="POST">
@@ -18,7 +47,7 @@
       <label for="confirmPassword">Confirm Password:</label>
       <input type="password" name="confirmPassword" id="confirmPassword" /><br>
 
-      <button type="submit">Sign up</button>
+      <button type="submit"><b>Sign up</b></button>
     </form>
   </body>
 </html>
