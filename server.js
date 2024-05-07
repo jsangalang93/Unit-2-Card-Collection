@@ -6,28 +6,33 @@ const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const methodOverride = require('method-override');
-
 const mongoose = require('mongoose');
+
+const methodOverride = require('method-override');
+const morgan = require('morgan');
+
+const port = process.env.PORT ? process.env.PORT : 3015;
+const authController = require('./controllers/auth.js');
+
 mongoose.connect(process.env.MONGODB_URI);
 
-const authController = require('./controllers/auth.js');
 
 mongoose.connection.on("error", (error) => {
     console.log("MongoDB connection error ", error);
   });
 
-//generates req.body VVVV
+// MIDDLEWARE VVVV
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
+app.use(morgan('dev'));
 
 const Cards = require('./models/card.js');
 
 //Home page
-app.get('/', (req, res)=>{
+app.get('/', async (req, res)=>{
     res.render('home.ejs')
 })
 
