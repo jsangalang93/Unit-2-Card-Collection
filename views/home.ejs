@@ -30,6 +30,13 @@
         color: red;
         margin: 20px;
     }
+
+    h3 {
+        font-family: 'Creepster';
+        font-size: 25px;
+        color: green;
+        margin: 20px;
+    }
     a {
         text-decoration: none;
         color: #333;
@@ -58,11 +65,32 @@
     </div>
     <h1> Database</h1>
     <p>A place where I can keep track of all of my cards, to look at a glance.</p>
+
+        <% if (user) { %>
+            <h3>Welcome to the pail, <%= user.username %>!</h3>
+            <p>
+                <a href="/auth/sign-out">Sign out</a>
+            </p>
+                <% } else { %>
+            <h3>Welcome to the pail, friendly visitor!</h3>
+            <p>
+                <a href="/auth/sign-up">Sign up</a> <a href="/auth/sign-in">sign in</a>
+            </p>
+        <% } %>
+
     <a href="/cards">View all cards</a>
+
     <a href="/cards/new">Add a new card</a>
+    <p><a href='/vip'>User goodies!(It's trash, really)</a></p>
+
+    <!-- <a href="/auth/sign-up">Join the Pail</a> -->
+
+    <!-- <a href="/auth/sign-in">Sign In</a> -->
+
     <div class="adam">
-            <a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/nz45S6qp/adam-Resize.png' border='0' alt='adam-Resize'/></a>
+            <p class="change"><a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/nz45S6qp/adam-Resize.png' border='0' alt='adam-Resize'/></a></p>
         <!-- resize host link provided by 'www.postimage.org'-->
     </div>
-</body>
+    
+    </body>
 </html>

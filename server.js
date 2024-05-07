@@ -6,29 +6,56 @@ const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const methodOverride = require('method-override');
-
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);
 
-mongoose.connection.on("error", (error) => {
-    console.log("MongoDB connection error ", error);
-  });
+const methodOverride = require('method-override');
+const morgan = require('morgan');
 
-//generates req.body VVVV
+const port = process.env.PORT ? process.env.PORT : 3015;
+const authController = require('./controllers/auth.js');
+
+const session = require ('express-session');
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
+app.use(morgan('dev'));
+
+app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: true,
+    })
+  );
+
+mongoose.connect(process.env.MONGODB_URI);
+
+
+mongoose.connection.on("error", (error) => {
+    console.log("MongoDB connection error ", error);
+  });
+
+// MIDDLEWARE VVVV
+
+
+//session setup prefs
+
 
 const Cards = require('./models/card.js');
 
+//Home page
+app.get('/', async (req, res)=>{
+    res.render('home.ejs', {
+        user: req.session.user,
+    });
+});
 
-app.get('/', (req, res)=>{
-    res.render('home.ejs')
-})
-// CREATE ROUTE----------------------------------------------------------------------
+//calling the authController
+app.use('/auth', authController);
+
+// CREATE ROUTE------------------------------------------------------------------------
 app.get('/cards/new', (req, res)=>{
     res.render('cards/new.ejs')
 })
@@ -43,11 +70,7 @@ app.post('/cards', async (req, res)=>{
     res.redirect('/cards')
 })
 
-
-
-
-
-//READ ROUTE-----------------------------------------------------------------------
+//READ ROUTE--------------------------------------------------------------------------
 app.get('/cards', async (req, res)=>{
     const allCards = await Cards.find({})
     res.render('cards/index.ejs', {
@@ -55,13 +78,22 @@ app.get('/cards', async (req, res)=>{
     })
 })
 
-// PARSING BY SERIES
+// SHOW ROUTE--------------------------------------------------------------------------
+
 app.get('/cards/:id', async (req, res) => {
     const foundCard = await Cards.findById(req.params.id);
     res.render('cards/show.ejs', {card: foundCard});
 });
 
-// UPDATE ROUTE--------------------------------------------------------------------
+app.get('/vip', (req, res) => {
+    if (req.session.user) {
+        res.send('Thank you for being vip trash');
+    } else {
+        res.send('You are not trashy enough, sign up to be vip trash');
+    }
+});
+
+// UPDATE ROUTE------------------------------------------------------------------------
 
 app.get('/cards/:id/edit', async (req, res)=>{
     const foundCard = await Cards.findById(req.params.id);
@@ -75,6 +107,8 @@ app.put('/cards/:id', async (req, res)=>{
     res.redirect(`/cards/${req.params.id}`);
 })
 
+// PARSING BY SERIES--------------------------------------------------------------------
+
 app.get('/:series', async (req, res)=>{
     const foundCards = await Cards.find({series: req.params.series});
     console.log(
@@ -82,14 +116,14 @@ app.get('/:series', async (req, res)=>{
     );
     res.render('cards/series.ejs', {card: foundCards, series: req.params.series});
 });
-// DELETE ROUTE--------------------------------------------------------------------
+// DELETE ROUTE------------------------------------------------------------------------
 
 app.delete('/cards/:id', async (req, res)=>{
     await Cards.findByIdAndDelete(req.params.id);
     res.redirect('/cards');
 })
 
-// CONNECTIONS---------------------------------------------------------------------
+// CONNECTIONS-------------------------------------------------------------------------
 mongoose.connection.on('connected', ()=>{
     console.log(`connected to MongoDB ${mongoose.connection.name}`);
 })
