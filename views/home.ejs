@@ -58,9 +58,23 @@
     </div>
     <h1> Database</h1>
     <p>A place where I can keep track of all of my cards, to look at a glance.</p>
+
+        <% if (user) { %>
+            <h1>Welcome to the pail, <%= user.username %>!</h1>
+                <% } else { %>
+            <h1>Welcome to the pail, friendly visitor!</h1>
+            <p>
+                <a href="/auth/sign-up">Sign up</a> or <a href="/auth/sign-in">sign in</a>.
+            </p>
+        <% } %>
+
     <a href="/cards">View all cards</a>
+
     <a href="/cards/new">Add a new card</a>
+
     <a href="/auth/sign-up">Join the Pail</a>
+
+    <a href="/auth/sign-in">Sign In</a>
 
     <div class="adam">
             <a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/nz45S6qp/adam-Resize.png' border='0' alt='adam-Resize'/></a>

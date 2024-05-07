@@ -14,6 +14,16 @@ const morgan = require('morgan');
 const port = process.env.PORT ? process.env.PORT : 3015;
 const authController = require('./controllers/auth.js');
 
+const session = require ('express-session');
+
+app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: true,
+    })
+  );
+
 mongoose.connect(process.env.MONGODB_URI);
 
 
@@ -29,12 +39,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
 app.use(morgan('dev'));
 
+//session setup prefs
+
+
 const Cards = require('./models/card.js');
 
 //Home page
 app.get('/', async (req, res)=>{
-    res.render('home.ejs')
-})
+    res.render('home.ejs', {
+        user: req.session.user,
+    });
+});
 
 //calling the authController
 app.use('/auth', authController);
