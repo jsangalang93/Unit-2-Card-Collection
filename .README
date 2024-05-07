@@ -2,6 +2,18 @@ GARBAGE PAILS KIDS CARD COLLECTION DATABASE
 
 a database to keep track of cards in posession with or without the physical cards in front of me.
 
+With this app you can create new datasets of the Garbage Pail Kids you have! You can also edit the post you made alongside see all the posts on the site, see cards by series, make comments on posts and delete them altogether. You can even become a member of the site to gain access to giveaways and goodies!
+
+
+COMPLICATIONS:
+
+The session authorization was a hard skill to tackle especially when integrating it into the project itself. Debugging was really the hardest part as there are so many webs to follow with server.js to the router to the page itself. The deployment of the added in session authorization was a feat but in the end was successful.
+
+FOR THE FUTURE:
+
+To work on this further, I would like to add a page in the vip section that has an interactive gallery of Garbage Pail Kids scans and other rescources to nerd out on the series. I would also add a couple more png's laced throughout the site, and mayeb grid rearranging. I would also like to add an easter egg "PEEL HERE" button somewhere tucked away to give a surprise for non-authenticated users too.
+
+
 CITATION
 
 PICTURES:
@@ -15,4 +27,8 @@ https://seeklogo.com/vector-logo/518851/garbage-pail-kids-adam-bomb
 
 CARD CLASSIFICATIONS:
 https://mktg-assets.tcgplayer.com/web/seller/guides/Card-Conditioning-Standards.pdf
-session auth test
+
+
+TYPE FONTS:
+"CREEPSTER" and "PLAYFAIR DISPLAY":
+https://fonts.google.com/
